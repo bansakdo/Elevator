@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tbMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_margin="0dp"
+            android:background="@color/darkblue"
+            android:padding="10dp"
+            android:src="@drawable/logo" />
+
+    <Button
+        android:id="@+id/btnGachon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="가천관" />
+
+    <Button
+        android:id="@+id/btnIt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="IT대학" />
+    <Button
+        android:id="@+id/btnVision"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="비전타워" />
+
+    <Button
+        android:id="@+id/btnGolobal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="글로벌센터" />
+
+
+</LinearLayout>
