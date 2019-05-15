@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toolbar;
 
 public class Gachon extends Activity {
 
+    TextView elv1, elv2, elv3, elv4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         MainActivity.actList.add(this);
@@ -22,6 +24,20 @@ public class Gachon extends Activity {
         ActionBar ab = getActionBar();
         getActionBar().setDisplayHomeAsUpEnabled(true);
         ab.setTitle("가천관");
+        elv1 = (TextView)findViewById(R.id.tv_gachon_elv1);
+        elv2 = (TextView)findViewById(R.id.tv_gachon_elv2);
+        elv3 = (TextView)findViewById(R.id.tv_gachon_elv3);
+        elv4 = (TextView)findViewById(R.id.tv_gachon_elv4);
+
+
+    }
+
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
 
 
     }

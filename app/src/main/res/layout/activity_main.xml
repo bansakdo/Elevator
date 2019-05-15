@@ -11,36 +11,68 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme" />
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_margin="0dp"
-            android:background="@color/darkblue"
-            android:padding="10dp"
-            android:src="@drawable/logo" />
-
-    <Button
-        android:id="@+id/btnGachon"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="가천관" />
+        android:layout_height="70dp"
+        android:layout_margin="0dp"
+        android:background="@color/darkblue"
+        android:padding="10dp"
+        android:src="@drawable/logo" />
 
-    <Button
-        android:id="@+id/btnIt"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="IT대학" />
-    <Button
-        android:id="@+id/btnVision"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="비전타워" />
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:paddingTop="100dp"
+        android:gravity="center_horizontal"
+        >
 
-    <Button
-        android:id="@+id/btnGolobal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="글로벌센터" />
+        <Button
+            android:id="@+id/btnGachon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="가천관"
+            android:layout_margin="25dp"
+            />
 
+        <Button
+            android:id="@+id/btnIt"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="IT대학"
+            android:layout_margin="25dp"
+            />
+        </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        >
+
+
+        <Button
+            android:id="@+id/btnVision"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="비전타워"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            />
+
+        <Button
+            android:id="@+id/btnGolobal"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="글로벌센터"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            />
+
+    </LinearLayout>
 
 </LinearLayout>
