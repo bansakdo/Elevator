@@ -12,7 +12,8 @@ public class DBHelper extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE MONEYBOOK(_id INTEGER PRIMARY KEY AUTOINCREMENT, itme TEXT, " + " price INTERGER, create_at TEXT, amounts INTEGER, total INTEGER);");
+//        db.execSQL("CREATE TABLE MONEYBOOK(_id INTEGER PRIMARY KEY AUTOINCREMENT, itme TEXT, " + " price INTERGER, create_at TEXT, amounts INTEGER, total INTEGER);");
+        db.execSQL("CREATE TABLE WEIGHT(DCUURENT_TIME TIME, WEIGHT INTEGER NOT NULL );");
     }
 
     @Override
@@ -20,9 +21,10 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-    public void insert (String create_at, String item, int price, int amounts) {
+    public void insert (int weight) {
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("INSERT INTO MONEYBOOK VALUES(null, '"+item+"', "+price+", '"+create_at+"', "+amounts+", "+price*amounts+")");
+//        db.execSQL("INSERT INTO MONEYBOOK VALUES(null, '"+item+"', "+price+", '"+create_at+"', "+amounts+", "+price*amounts+")");
+        db.execSQL("INSERT INTO WEIGHT VALUES(NOW(), WEIGHT)");
         db.close();
     }
 
@@ -39,6 +41,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
     public String getResult(){
         SQLiteDatabase db = getWritableDatabase();
+
         String result = "";
         Cursor cursor = db.rawQuery("SELECT * FROM MONEYBOOK", null);
         while(cursor.moveToNext()) {
