@@ -6,10 +6,13 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Layout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -28,12 +31,14 @@ public class MainActivity extends AppCompatActivity{
         Button btnIt = (Button)findViewById(R.id.btnIt);
         Button btnVision = (Button)findViewById(R.id.btnVision);
         Button btnGlobal = (Button)findViewById(R.id.btnGolobal);
+        TextView tvGc = (TextView)findViewById(R.id.tv_main_gc);
 
 
         Toolbar toolbar = findViewById(R.id.tbMain);
         setSupportActionBar(toolbar);                           //toolbar를 액티비티의 appbar로 지정
         ActionBar ab = getSupportActionBar();
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);  //뒤로가기 버튼
+
 
 
 
@@ -44,6 +49,14 @@ public class MainActivity extends AppCompatActivity{
                 startActivity(in);
             }
         });
+        tvGc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getApplicationContext(), Gachon.class);
+                startActivity(in);
+            }
+        });
+
 
         btnGlobal.setOnClickListener(new View.OnClickListener() {
             @Override
