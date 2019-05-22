@@ -2,6 +2,7 @@ package com.example.projectaa;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.LauncherActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,18 +14,25 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class Gachon extends Activity {
 
     TextView elv1, elv2, elv3, elv4;
-    String imgUrl = "http://bansakdo123.iptime.org/phpMyAdmin/data/appimg";
+    String imgUrl = "http://bansakdo123.iptime.org/var/services/web";
     Bitmap bmImg;
     phpDown task;
+    ArrayList<ListItem> listItem = new ArrayList<ListItem>();
+    ListItem Item;
 
 
     @Override
@@ -43,8 +51,12 @@ public class Gachon extends Activity {
         elv3 = (TextView)findViewById(R.id.tv_gachon_elv3);
         elv4 = (TextView)findViewById(R.id.tv_gachon_elv4);
 
+        ArrayList<ListItem> listItem = new ArrayList<ListItem>();
+        task = new phpDown();
+//        task.execute("http://bansakdo123.iptime.org/data/connect_mysql.php"); //안튕김
+//        task.execute("192.168.0.17/phpMyAdmin/connect_mysql.php");
 //        task.execute("http://bansakdo123.iptime.org/web/phpMyAdmin/data/connect_mysql.php");
-//        task.execute("http://bansakdo123.iptime.org/phpMyAdmin/data/connect_mysql.php");
+        task.execute("http://bansakdo123.iptime.org/phpMyAdmin/data/connect_mysql.php");
 //        task.execute("http://bansakdo123.iptime.org/run/mysqld/mysqld10.sock/data/connect_mysql.php");
 }
 
@@ -52,8 +64,6 @@ public class Gachon extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-
-
 
     }
 
@@ -132,6 +142,8 @@ public class Gachon extends Activity {
 //        }
     }
 
+
+
     private class phpDown extends AsyncTask<String, Integer, String> {
 
         @Override
@@ -167,7 +179,23 @@ public class Gachon extends Activity {
         }
 
         protected void onPostExcute(String str) {
-            elv1.setText(str);
+
+            String time, weight;
+
+            try {
+                JSONObject root = new JSONObject(str);
+                JSONArray ja = root.getJSONArray("results");
+                for(int i = 0 ; i < ja.length() ; i++) {
+                    JSONObject jo = ja.getJSONObject(i);
+                    time = jo.getString("time");
+                    weight = jo.getString("weights");
+                    listItem.add(new ListItem(time, weight));
+                }
+            }catch(JSONException e) {
+                e.printStackTrace();
+            }
+
+            elv1.setText("time : " + listItem.get(0).getData(0)+ "\nweight : "+listItem.get(0).getData(1));
         }
 
     }
